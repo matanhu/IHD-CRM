@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CustomerModel } from "app/models/customer.model";
-import { FormGroup, FormControl, Validators } from '@angular/forms'
+import { FormGroup, FormControl, Validators, FormBuilder, FormArray } from '@angular/forms'
 import { CustomerService } from "app/services/customer/customer.service";
 import { AddressBuildingModel } from "app/models/addressBuilding.model";
 import { DialogService } from "ng2-bootstrap-modal";
 import { AlertComponent } from "app/components/modals/alert/alert.component";
+import { ContactModel } from "app/models/contact.model";
 
 @Component({
   selector: 'ihd-edit-customer',
@@ -20,25 +21,27 @@ export class EditCustomerComponent implements OnInit {
   private key:string;
 
   constructor(private customerService: CustomerService,
+              private formBuilder: FormBuilder,
               private dialogService:DialogService,
               private route: ActivatedRoute) { 
     
   }
 
   ngOnInit() {
-    this.customer = new CustomerModel('','',new AddressBuildingModel('','','',''),'','','','');
-    this.customerForm = new FormGroup({
-      customerName: new FormControl(this.customer.customerName,[Validators.required]),
-      address: new FormGroup({
-        city: new FormControl(this.customer.address.city),
-        street: new FormControl(this.customer.address.street),
-        buildingNumber: new FormControl(this.customer.address.buildingNumber),
-        apartmentNumber: new FormControl(this.customer.address.apartmentNumber),
+    this.customer = new CustomerModel('','',new AddressBuildingModel('','','',''),'','','','', new Array<ContactModel>());
+    this.customerForm = this.formBuilder.group({
+      customerName: [this.customer.customerName,[Validators.required]],
+      address: this.formBuilder.group({
+        city: [this.customer.address.city],
+        street: [this.customer.address.street],
+        buildingNumber: [this.customer.address.buildingNumber],
+        apartmentNumber: [this.customer.address.apartmentNumber],
       }),
-      phone: new FormControl(this.customer.phone),
-      fax: new FormControl(this.customer.fax),
-      email: new FormControl(this.customer.email, [Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]),
-      website: new FormControl(this.customer.website)
+      phone: [this.customer.phone],
+      fax: [this.customer.fax],
+      email: [this.customer.email, [Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
+      website: [this.customer.website],
+      contacts: this.formBuilder.array([])
     });
       
     this.sub = this.route.params.subscribe(params => {
@@ -52,6 +55,11 @@ export class EditCustomerComponent implements OnInit {
               console.log(snapshot)
               this.customer = snapshot;
               this.customer.key = snapshot.$key;
+              if(this.customer.contacts){
+                this.customer.contacts.forEach(contact => {
+                  this.addContact();
+                });
+              }
               this.customerForm.patchValue(this.customer);
             }
             else{
@@ -91,6 +99,34 @@ export class EditCustomerComponent implements OnInit {
 
   showAlert() {
     this.dialogService.addDialog(AlertComponent, {title:'לקוח לא נמצא', message:'לקוח זה לא נמצא, חזור לעמוד הקודם.'});
+  }
+
+  iniinitContacttAddress() {
+      return this.formBuilder.group({
+          firstName: ['', Validators.required],
+          lastName: [''],
+          email:[''],
+          celPhone:[''],
+          phone:[''],
+          address: this.formBuilder.group({
+            city: [this.customer.address.city],
+            street: [this.customer.address.street],
+            buildingNumber: [this.customer.address.buildingNumber],
+            apartmentNumber: [this.customer.address.apartmentNumber],
+          })
+      });
+    }
+
+  addContact() {
+    const control = <FormArray>this.customerForm.controls['contacts'];
+    const addrCtrl = this.iniinitContacttAddress();
+    
+    control.push(addrCtrl);
+  }
+
+  removeContact(i: number) {
+      const control = <FormArray>this.customerForm.controls['contacts'];
+      control.removeAt(i);
   }
 
 }

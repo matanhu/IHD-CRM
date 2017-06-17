@@ -19,6 +19,7 @@ import { CustomersListComponent } from './pages/customers-list/customers-list.co
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { AlertComponent } from './components/modals/alert/alert.component';
 import { DisplayCustomerComponent } from './pages/display-customer/display-customer.component';
+import { EditContactComponent } from './components/edit-contact/edit-contact.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { DisplayCustomerComponent } from './pages/display-customer/display-custo
     HomePageComponent,
     AlertComponent,
     DisplayCustomerComponent,
+    EditContactComponent,
   ],
   imports: [
     BrowserModule,

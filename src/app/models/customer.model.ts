@@ -9,7 +9,7 @@ export class CustomerModel {
     public phone: string,
     public fax: string,
     public email: string,
-    public website: string
-    // public contacts: ContactModel[],
+    public website: string,
+    public contacts: ContactModel[],
     ){}
 }

@@ -1,0 +1,54 @@
+<div [formGroup]="contactFormGroup">
+  <div class="row">
+    <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <label>שם פרטי</label>
+        <input type="text" class="form-control" formControlName="firstName" placeholder="שם פרטי">
+    </div>
+    <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <label>שם משפחה</label>
+        <input type="text" class="form-control" formControlName="lastName" placeholder="שם משפחה">
+    </div>
+  </div>
+
+  <div formGroupName="address">
+    <div class="row">
+      <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label>עיר</label>
+          <input type="text" class="form-control" formControlName="city" placeholder="עיר">
+      </div>
+      <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label>רחוב</label>
+          <input type="text" class="form-control" formControlName="street" placeholder="רחוב">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label>מספר בית</label>
+          <input type="text" class="form-control" formControlName="buildingNumber" placeholder="מספר בית">
+      </div>
+      <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label>מספר דירה</label>
+          <input type="text" class="form-control" formControlName="apartmentNumber" placeholder="מספר דירה">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <label>סלולארי</label>
+        <input type="text" class="form-control" formControlName="celPhone" placeholder="סלולארי">
+    </div>
+    <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <label>טלפון</label>
+        <input type="text" class="form-control" formControlName="phone" placeholder="טלפון">
+    </div>
+  </div>  
+  
+  <div class="row">
+    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <label>דוא"ל</label>
+        <input type="text" class="form-control" formControlName="email" placeholder="דוא&ldquo;ל">
+    </div>
+  </div>  
+  
+</div>

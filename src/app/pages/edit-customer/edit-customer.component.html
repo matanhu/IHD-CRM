@@ -47,6 +47,23 @@
       <label for="website">אתר אינטרנט</label>
       <input type="text" class="form-control" id="website" formControlName="website" name="website" placeholder="אתר אינטרנט">
     </div>
+
+    <div formArrayName="contacts">
+          <div *ngFor="let contact of customerForm.controls.contacts.controls; let i=index" class="panel panel-default">
+            <div class="panel-heading">
+              <span>איש קשר</span>
+              <i class="fa fa-times pull-left" aria-hidden="true" *ngIf="customerForm.controls.contacts.controls.length > 0" (click)="removeContact(i)"> </i>
+            </div>
+            <div class="panel-body" [formGroupName]="i">
+              <ihd-edit-contact [ihdContactFormGroup]="customerForm.controls.contacts.controls[i]"></ihd-edit-contact>
+            </div>
+          </div>
+        </div>
+
+    <div>
+      <button type="button" class="btn btn-outline-primary" (click)="addContact()">הוסף איש קשר</button>
+    </div>
+
     <button type="submit" class="btn btn-outline-primary" [disabled]="customerForm.invalid">שמור</button>
   </form>
 </div>
