@@ -1,0 +1,17 @@
+.form-container{
+    border: 1px solid #e3e3e3;
+    padding: 2em;
+}
+.error-message{
+    color: #a94442;
+}
+
+input.ng-invalid.ng-dirty{
+    border: 1px solid #a94442;
+    border-right: 5px solid #a94442;
+}
+
+input.ng-valid.ng-dirty{
+    border: 1px solid #3c763d;
+    border-right: 5px solid #3c763d;
+}

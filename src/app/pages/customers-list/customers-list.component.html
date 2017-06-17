@@ -1,0 +1,29 @@
+<h1> רשימת לקוחות </h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>שם חברה</th>
+      <th>כתובת</th>
+      <th>מספר </th>
+      <th>פקס</th>
+      <th>דוא"ל</th>
+      <th>אתר אינטרנט</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers | async">
+      <td><a [routerLink]="['/customer', customer.$key]">{{customer.customerName}}</a></td>
+      <td>
+        {{customer.address.city}},  {{customer.address.street}}
+        <span *ngIf="customer.address.buildingNumber"> {{customer.address.buildingNumber}} </span>
+        <span *ngIf="customer.address.apartmentNumber">, דירה {{customer.address.apartmentNumber}}</span>
+      </td>
+      <td>{{customer.phone}}</td>
+      <td>{{customer.fax}}</td>
+      <td><a [href]="'mailto:' + customer.email">{{customer.email}}</a></td>
+      <td><a [href]="customer.website"  target="_blank">{{customer.website}}</a></td>
+      <td><button class="btn btn-outline-primary" [routerLink]="['/editCustomer', customer.$key]">ערוך</button>
+    </tr>
+  </tbody>
+</table>
