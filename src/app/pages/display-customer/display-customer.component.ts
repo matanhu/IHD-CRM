@@ -5,6 +5,7 @@ import { DialogService } from "ng2-bootstrap-modal";
 import { CustomerModel } from "app/models/customer.model";
 import { AddressBuildingModel } from "app/models/addressBuilding.model";
 import { AlertComponent } from "app/components/modals/alert/alert.component";
+import { ContactModel } from "app/models/contact.model";
 
 @Component({
   selector: 'ihd-display-customer',
@@ -22,7 +23,7 @@ export class DisplayCustomerComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.customer = new CustomerModel('','',new AddressBuildingModel('','','',''),'','','','');
+    this.customer = new CustomerModel('','',new AddressBuildingModel('','','',''),'','','','',new Array<ContactModel>());
     this.sub = this.route.params.subscribe(params => {
        this.key = params['id']; // (+) converts string 'id' to a number
        // In a real app: dispatch action to load the details here.
