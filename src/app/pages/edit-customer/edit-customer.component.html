@@ -11,48 +11,57 @@
       </div>
     </div>
     <div formGroupName="address">
-      <div class="form-group">
-        <label for="city">עיר</label>
-        <input type="text" class="form-control" id="city" formControlName="city" name="city" placeholder="עיר">
+      <div class="row">
+        <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="city">עיר</label>
+          <input type="text" class="form-control" id="city" formControlName="city" name="city" placeholder="עיר">
+        </div>
+        <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="street">רחוב</label>
+          <input type="text" class="form-control" id="street" formControlName="street" name="street" placeholder="רחוב">
+        </div>
       </div>
-      <div class="form-group">
-        <label for="street">רחוב</label>
-        <input type="text" class="form-control" id="street" formControlName="street" name="street" placeholder="רחוב">
-      </div>
-      <div class="form-group">
-        <label for="buildingNumber">מספר בית</label>
-        <input type="text" class="form-control" id="buildingNumber" formControlName="buildingNumber" name="buildingNumber" placeholder="מספר בית">
-      </div>
-      <div class="form-group">
-        <label for="apartmentNumber">מספר דירה</label>
-        <input type="text" class="form-control" id="apartmentNumber" formControlName="apartmentNumber" name="apartmentNumber" placeholder="מספר דירה">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="phone">טלפון</label>
-      <input type="tel" class="form-control" id="phone" formControlName="phone" name="phone" placeholder="טלפון">
-    </div>
-    <div class="form-group">
-      <label for="fax">פקס</label>
-      <input type="tel" class="form-control" id="fax" formControlName="fax" name="fax" placeholder="פקס">
-    </div>
-    <div class="form-group">
-      <label for="email">דוא"ל</label>
-      <input type="email" class="form-control" id="email" formControlName="email" name="email" placeholder="דוא&ldquo;ל">
-      <div class="error-message" *ngIf="customerForm.controls.email.hasError('pattern')">
-          כתובת מייל לא תקינה
+      <div class="row">
+        <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="buildingNumber">מספר בית</label>
+          <input type="text" class="form-control" id="buildingNumber" formControlName="buildingNumber" name="buildingNumber" placeholder="מספר בית">
+        </div>
+        <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="apartmentNumber">מספר דירה</label>
+          <input type="text" class="form-control" id="apartmentNumber" formControlName="apartmentNumber" name="apartmentNumber" placeholder="מספר דירה">
+        </div>
       </div>
     </div>
-    <div class="form-group">
-      <label for="website">אתר אינטרנט</label>
-      <input type="text" class="form-control" id="website" formControlName="website" name="website" placeholder="אתר אינטרנט">
+
+    <div class="row">
+      <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <label for="phone">טלפון</label>
+        <input type="tel" class="form-control" id="phone" formControlName="phone" name="phone" placeholder="טלפון">
+      </div>
+      <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <label for="fax">פקס</label>
+        <input type="tel" class="form-control" id="fax" formControlName="fax" name="fax" placeholder="פקס">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <label for="email">דוא"ל</label>
+        <input type="email" class="form-control" id="email" formControlName="email" name="email" placeholder="דוא&ldquo;ל">
+        <div class="error-message" *ngIf="customerForm.controls.email.hasError('pattern')">
+            כתובת מייל לא תקינה
+        </div>
+      </div>
+      <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <label for="website">אתר אינטרנט</label>
+        <input type="text" class="form-control" id="website" formControlName="website" name="website" placeholder="אתר אינטרנט">
+      </div>
     </div>
 
     <div formArrayName="contacts">
           <div *ngFor="let contact of customerForm.controls.contacts.controls; let i=index" class="panel panel-default">
             <div class="panel-heading">
               <span>איש קשר</span>
-              <i class="fa fa-times pull-left" aria-hidden="true" *ngIf="customerForm.controls.contacts.controls.length > 0" (click)="removeContact(i)"> </i>
+              <i class="fa fa-times pull-left" aria-hidden="true"  (click)="removeContact(i)"> </i>
             </div>
             <div class="panel-body" [formGroupName]="i">
               <ihd-edit-contact [ihdContactFormGroup]="customerForm.controls.contacts.controls[i]"></ihd-edit-contact>
