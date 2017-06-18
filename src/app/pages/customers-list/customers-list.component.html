@@ -24,7 +24,7 @@
         <td>{{customer.fax}}</td>
         <td><a [href]="'mailto:' + customer.email">{{customer.email}}</a></td>
         <td><a [href]="customer.website"  target="_blank">{{customer.website}}</a></td>
-        <td><button class="btn btn-outline-primary" [routerLink]="['/editCustomer', customer.$key]">ערוך</button>
+        <td><button class="btn btn-outline-primary" [routerLink]="['/editCustomer', customer.$key]">ערוך</button></td>
       </tr>
     </tbody>
   </table>
@@ -34,7 +34,7 @@
   <div class="col-sm-5 col-xs-12 box" *ngFor="let customer of customers | async">
     <div class="detial-customer-container">
       <div class="header-detail-customer">
-        <h3>{{(customer.customerName)}}</h3>
+        <h3><a [routerLink]="['/customer', customer.$key]">{{customer.customerName}}</a></h3>
       </div>
       <div>
         <div class="row">
@@ -77,6 +77,11 @@
           </div>
           <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
             <a [href]="customer.website"  target="_blank">{{customer.website}}</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-xs-12">
+            <button class="btn btn-outline-primary" [routerLink]="['/editCustomer', customer.$key]">ערוך</button>
           </div>
         </div>
       </div>
