@@ -1,7 +1,7 @@
-import { AddressBuildingModel } from "app/models/addressBuilding.model";
+import { AddressBuildingModel } from 'app/models/addressBuilding.model';
 
 export class ContactModel {
-    
+
     public firstName: string;
     public lastName: string;
     public email: string;
@@ -9,5 +9,5 @@ export class ContactModel {
     public phone: string;
     public address: AddressBuildingModel;
 
-    constructor(){}
+    constructor() {}
 }

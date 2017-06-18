@@ -1,9 +1,9 @@
-import { ContactModel } from "app/models/contact.model";
-import { AddressBuildingModel } from "app/models/addressBuilding.model";
+import { ContactModel } from 'app/models/contact.model';
+import { AddressBuildingModel } from 'app/models/addressBuilding.model';
 
 export class CustomerModel {
     constructor(
-    public key:string,
+    public key: string,
     public customerName: string,
     public address: AddressBuildingModel,
     public phone: string,
@@ -11,5 +11,5 @@ export class CustomerModel {
     public email: string,
     public website: string,
     public contacts: ContactModel[],
-    ){}
+    ) {}
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup } from "@angular/forms";
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'ihd-edit-contact',
@@ -8,7 +8,7 @@ import { FormGroup } from "@angular/forms";
 })
 export class EditContactComponent implements OnInit {
 
-  @Input('ihdContactFormGroup')
+  @Input()
   contactFormGroup: FormGroup;
   constructor() { }
 
