@@ -1,6 +1,5 @@
 .navbar-brand{
     font-weight: bold;
-    box-shadow: 5px 5px 5px #888;
 }
 
 @media screen and (max-width: 758px){
