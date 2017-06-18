@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-import { CustomerModel } from "app/models/customer.model";
+import { CustomerModel } from 'app/models/customer.model';
 
 @Injectable()
 export class CustomerService {

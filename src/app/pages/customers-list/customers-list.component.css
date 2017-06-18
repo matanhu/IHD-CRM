@@ -1,3 +1,45 @@
 th {
     text-align: right;
 }
+
+.box{
+    margin: 1em;
+}
+
+.detial-customer-container{
+    height: 100%;
+    background-color: #f7f7f7;
+    word-wrap: break-word;
+    box-shadow: 5px 5px 10px #888888;
+    padding: 5px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #CCCECE;
+    background: #fff;
+    transition: box-shadow 0.5s;
+}
+
+.header-detail-customer{
+    width: 100%;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.header-detail-customer h3{
+    margin: 0px;
+    padding: 0 0.5em 0 0;
+}
+
+@media (min-width: 992px) {
+    .mobile{
+        display: none;
+    }
+
+
+}
+
+@media (max-width: 992px){
+    .desktop{
+        display: none;
+    }
+}
