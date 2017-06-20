@@ -14,13 +14,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{'show': navShow}">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">בית</a>
+          <a class="nav-link" [routerLink]="['/home']" (click)="navShow = false" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">בית</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  [routerLink]="['newCustomer']" routerLinkActive="active">הוסף לקוח</a>
+          <a class="nav-link"  [routerLink]="['newCustomer']" (click)="navShow = false" routerLinkActive="active">הוסף לקוח</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['customers-list']" routerLinkActive="active">רשימת לקוחות</a>
+          <a class="nav-link" [routerLink]="['customers-list']" (click)="navShow = false" routerLinkActive="active">רשימת לקוחות</a>
         </li>
       </ul>
       <!--<form class="form-inline my-2 my-lg-0 search">
