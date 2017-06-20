@@ -45,3 +45,7 @@ input.ng-valid.ng-dirty{
 .panel-body {
     padding: 15px;
 }
+
+.add-contact-btn-container{
+    margin: 0 0 1em 0;
+}

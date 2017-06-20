@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { CustomerModel } from 'app/models/customer.model';
-import { FormGroup, FormControl, Validators, FormBuilder, FormArray } from '@angular/forms'
-import { CustomerService } from 'app/services/customer/customer.service';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AddressBuildingModel } from 'app/models/addressBuilding.model';
+import { CustomerModel } from 'app/models/customer.model';
+import { CustomerService } from 'app/services/customer/customer.service';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { AlertComponent } from 'app/components/modals/alert/alert.component';
 import { ContactModel } from 'app/models/contact.model';
@@ -23,7 +23,8 @@ export class EditCustomerComponent implements OnInit {
   constructor(private customerService: CustomerService,
               private formBuilder: FormBuilder,
               private dialogService: DialogService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private router: Router) {
 
   }
 
@@ -78,7 +79,10 @@ export class EditCustomerComponent implements OnInit {
         this.customer.key = this.key;
         this.customerService.updateCustomer(this.customerForm.value)
           .then(
-            res => console.log(res)
+            (res) => {
+              console.log(res);
+              this.router.navigate(['customers-list']);
+            }
           )
           .catch(
             err => console.log(err)
@@ -86,7 +90,10 @@ export class EditCustomerComponent implements OnInit {
       } else {
         this.customerService.addCustomer(this.customerForm.value)
           .then(
-            res => console.log(res)
+            (res) => {
+              console.log(res);
+              this.router.navigate(['customers-list']);
+            }
           )
           .catch(
             err => console.log(err)

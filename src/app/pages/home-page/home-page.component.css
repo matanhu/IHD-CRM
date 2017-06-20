@@ -1,0 +1,14 @@
+:host{
+    direction: rtl;
+}
+.navbar-container{
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    z-index: 99999;
+    box-shadow: 5px 5px 5px #888;
+}
+
+.container{
+    margin-top: 3em;
+}

@@ -1,4 +1,5 @@
 <h1> רשימת לקוחות </h1>
+<!--<button (click)="refreshCustomers()">רענן רשימת לקוחות</button>-->
 <div class="table-responsive desktop">
   <table class="table table-hover">
     <thead>
@@ -14,7 +15,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let customer of customers | async">
-        <td><a [routerLink]="['/customer', customer.$key]">{{customer.customerName}}</a></td>
+        <td><a [routerLink]="['/home', 'customer', customer.$key]">{{customer.customerName}}</a></td>
         <td>
           {{customer.address.city}},  {{customer.address.street}}
           <span *ngIf="customer.address.buildingNumber"> {{customer.address.buildingNumber}} </span>
@@ -24,7 +25,7 @@
         <td>{{customer.fax}}</td>
         <td><a [href]="'mailto:' + customer.email">{{customer.email}}</a></td>
         <td><a [href]="customer.website"  target="_blank">{{customer.website}}</a></td>
-        <td><button class="btn btn-outline-primary" [routerLink]="['/editCustomer', customer.$key]">ערוך</button></td>
+        <td><button class="btn btn-outline-primary" [routerLink]="['/home', 'editCustomer', customer.$key]">ערוך</button></td>
       </tr>
     </tbody>
   </table>
@@ -34,7 +35,7 @@
   <div class="col-sm-5 col-xs-12 box" *ngFor="let customer of customers | async">
     <div class="detial-customer-container">
       <div class="header-detail-customer">
-        <h3><a [routerLink]="['/customer', customer.$key]">{{customer.customerName}}</a></h3>
+        <h3><a [routerLink]="['/home', 'customer', customer.$key]">{{customer.customerName}}</a></h3>
       </div>
       <div>
         <div class="row">
@@ -81,7 +82,7 @@
         </div>
         <div class="row">
           <div class="col-sm-12 col-xs-12">
-            <button class="btn btn-outline-primary" [routerLink]="['/editCustomer', customer.$key]">ערוך</button>
+            <button class="btn btn-outline-primary" [routerLink]="['/home', 'editCustomer', customer.$key]">ערוך</button>
           </div>
         </div>
       </div>

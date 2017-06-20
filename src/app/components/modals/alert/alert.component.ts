@@ -32,7 +32,7 @@ export class AlertComponent  extends DialogComponent<AlertModel, null> implement
     super(dialogService);
   }
 
-  goBack(){
+  goBack() {
     window.history.back();
   }
 

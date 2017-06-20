@@ -8,7 +8,8 @@ import { FormGroup } from '@angular/forms';
 })
 export class EditContactComponent implements OnInit {
 
-  @Input()
+  // tslint:disable-next-line:no-input-rename
+  @Input('ihdContactFormGroup')
   contactFormGroup: FormGroup;
   constructor() { }
 
