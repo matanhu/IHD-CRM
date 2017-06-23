@@ -6,9 +6,12 @@
     top: 0px;
     width: 100%;
     z-index: 99999;
+    height: 4em;
     box-shadow: 5px 5px 5px #888;
+    background-color: #f7f7f7;
 }
 
 .container{
     margin-top: 3em;
+    min-height: 100vh;
 }

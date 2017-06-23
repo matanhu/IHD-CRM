@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ContactModel } from '../../models/contact.model';
+
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ihd-display-contact',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayContactComponent implements OnInit {
 
+  @Input()
+  contactList: Array<ContactModel>;
+
   constructor() { }
 
   ngOnInit() {
+    console.log(this.contactList);
   }
 
 }

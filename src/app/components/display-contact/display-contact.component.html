@@ -1,3 +1,48 @@
-<p>
-  display-contact works!
-</p>
+<div class="box-customer-details">
+  <div class="header-box-customer-details">
+    <h3>אנשי קשר</h3>
+  </div>
+  <div class="contacts-container">
+    <div class="row" *ngFor="let contact of contactList">
+      <div class="contact-name" tabindex="0">
+        {{contact.firstName}} {{contact.lastName}}
+        <span class="contact-details">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              טלפון:
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              {{contact.phone}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              מס סלולארי:
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              {{contact.celPhone}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              דוא"ל:
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              {{contact.email}}
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+      כתובת:
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+      {{(contact.address.city)}}, {{(contact.address.street)}}
+      <span *ngIf="contact.address.buildingNumber"> {{contact.address.buildingNumber}} </span>
+      <span *ngIf="contact.address.apartmentNumber">, דירה {{contact.address.apartmentNumber}}</span> 
+    </div>-->

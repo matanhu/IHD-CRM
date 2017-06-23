@@ -1,18 +1,24 @@
+.customer-page{
+    height: 100vh;
+}
+
+.detail-customer{
+    margin: 0 1% 2em 1%;
+}
+
 .detial-customer-container{
-    background-color: #f7f7f7;
+    /*background-color: #f7f7f7;*/
     padding: 0px;
     overflow: hidden;
     word-wrap: break-word;
-    margin: 1%;
-}
-
-.header-detail-customer{
-    width: 100%;
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #e3e3e3;
+    margin: 1% ;
 }
 
 .header-detail-customer h3{
     margin: 0px;
     padding: 0 0.5em 0 0;
+}
+
+.content-detail-customer{
+    padding: .5em;
 }

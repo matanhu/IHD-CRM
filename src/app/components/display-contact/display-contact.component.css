@@ -1,0 +1,58 @@
+.contacts-container{
+    padding: .5em;
+}
+
+.contact-name{
+    text-align: right;
+    color: inherit;
+    font-size: inherit;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    margin: 0 15px;
+}
+
+.contact-details{
+    position: absolute;
+    text-align: right;
+    font-weight: normal;
+    max-height: 10em;
+    overflow: auto;
+    cursor: default;
+    z-index: 62;
+    width: 353px;
+    right: -2em;
+    top: calc(100% + 1.5em);
+    color: #585e6a;
+    padding: 1em;
+    background-color: #fff;
+    border: solid 1px #b1aeae;
+    box-shadow: 0px 7px 10px rgba(0,0,0,.35);
+    pointer-events: none;
+    opacity: 0; 
+    transform: translate(0,-3em) scale(.7);
+    transition: all .25s;
+    font-family: SANS-SERIF;
+}
+
+/*.contact-name .contact-details::before{
+    opacity: 0;
+    content: " ";
+    top: 0.4em;
+    right: 50%;
+    margin-left: 5px;
+    border-width: 15px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+    position: absolute;
+}*/
+
+.contact-name:focus .contact-details{
+    opacity: 1;
+}
+
+					
+
+

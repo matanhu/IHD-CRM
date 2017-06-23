@@ -11,3 +11,17 @@ dialog-holder {
     height: 100%;
     background: rgba(0,0,0,0.5);
 }
+
+.box-customer-details{
+    box-sizing: border-box;
+    background-color: #f7f7f7;
+    border: 1px solid black;
+    box-shadow: 5px 5px 22px rgba(0,0,0,.35);
+}
+
+.header-box-customer-details{
+    width: 100%;
+    padding: 0 .5em;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #e3e3e3;
+}
