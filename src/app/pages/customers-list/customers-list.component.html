@@ -32,56 +32,56 @@
 </div>
 
 <div class="row mobile">
-  <div class="col-sm-5 col-xs-12 box" *ngFor="let customer of customers | async">
+  <div class="col-sm-5 col-12 box" *ngFor="let customer of customers | async">
     <div class="detial-customer-container">
       <div class="header-detail-customer">
         <h3><a [routerLink]="['/home', 'customer', customer.$key]">{{customer.customerName}}</a></h3>
       </div>
       <div>
         <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             כתובת:
           </div>
-          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <div class="col-lg-8 col-md-8 col-sm-8 col-8">
             {{(customer.address.city)}}, {{(customer.address.street)}}
             <span *ngIf="customer.address.buildingNumber"> {{customer.address.buildingNumber}} </span>
             <span *ngIf="customer.address.apartmentNumber">, דירה {{customer.address.apartmentNumber}}</span> 
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             טלפון:
           </div>
-          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <div class="col-lg-8 col-md-8 col-sm-8 col-8">
             {{(customer.phone)}}
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             פקס:
           </div>
-          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <div class="col-lg-8 col-md-8 col-sm-8 col-8">
             {{(customer.fax)}}
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             דוא"ל:
           </div>
-          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <div class="col-lg-8 col-md-8 col-sm-8 col-8">
             <a [href]="'mailto:' + customer.email">{{customer.email}}</a>
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             אתר:
           </div>
-          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <div class="col-lg-8 col-md-8 col-sm-8 col-8">
             <a [href]="customer.website"  target="_blank">{{customer.website}}</a>
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-12 col-xs-12">
+          <div class="col-sm-12 col-12">
             <button class="btn btn-outline-primary" [routerLink]="['/home', 'editCustomer', customer.$key]">ערוך</button>
           </div>
         </div>

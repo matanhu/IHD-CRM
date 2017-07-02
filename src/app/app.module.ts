@@ -24,6 +24,7 @@ import { AuthGuard } from './services/authguard/authguard.service';
 import { CustomerService } from './services/customer/customer.service';
 import { DisplayContactComponent } from './components/display-contact/display-contact.component';
 import { ContactTooltipDirective } from './directives/contact-tooltip/contact-tooltip.directive';
+import { SearchPageComponent } from './pages/search-page/search-page.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ContactTooltipDirective } from './directives/contact-tooltip/contact-to
     EditContactComponent,
     LoginComponent,
     DisplayContactComponent,
-    ContactTooltipDirective
+    ContactTooltipDirective,
+    SearchPageComponent
   ],
   imports: [
     BrowserModule,

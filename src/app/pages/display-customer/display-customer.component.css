@@ -12,6 +12,7 @@
     overflow: hidden;
     word-wrap: break-word;
     margin: 1% ;
+    overflow: visible;
 }
 
 .header-detail-customer h3{

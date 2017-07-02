@@ -7,10 +7,12 @@ import { EditCustomerComponent } from 'app/pages/edit-customer/edit-customer.com
 import { HomePageComponent } from 'app/pages/home-page/home-page.component';
 import { DisplayCustomerComponent } from 'app/pages/display-customer/display-customer.component';
 import { LoginComponent } from 'app/pages/login/login.component';
+import { SearchPageComponent } from 'app/pages/search-page/search-page.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent},
     { path: 'home', component: HomePageComponent, canActivate: [AuthGuard], children: [
+        { path: 'search', component: SearchPageComponent, canActivate: [AuthGuard]},
         { path: 'customer/:id', component: DisplayCustomerComponent, canActivate: [AuthGuard]},
         { path: 'customers-list', component: CustomersListComponent, canActivate: [AuthGuard]},
         { path: 'newCustomer', component: EditCustomerComponent, canActivate: [AuthGuard]},

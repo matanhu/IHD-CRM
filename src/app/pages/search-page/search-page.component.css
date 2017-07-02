@@ -1,0 +1,53 @@
+:host{
+    width: 100%;
+    margin: 8em auto;
+    text-align: center;
+}
+
+.search-container{
+    
+}
+
+input.form-control.search-input:focus {
+    width: 40em;
+}
+
+input.form-control.search-input {
+    margin: auto;
+    width: 30em;
+    transition: width 1s;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+}
+
+.autocompletep-container{
+    opacity: 0;
+    width: 30em;
+    transition: width 1s ,opacity 1s;
+    margin: 3px auto;
+    text-align: right;
+    padding: 0em;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.08);
+}
+
+input.form-control.search-input:focus ~ .autocompletep-container{
+    width: 40em;
+    display: block;
+    opacity: 1;
+}
+
+.autocompletep-container ul {
+    padding: 0;
+    margin: 0;
+}
+
+.autocompletep-container ul li{
+    list-style: none;
+    padding: 0 0.5em;
+    border-bottom: 1px solid #e3e3e3;
+    cursor: pointer;
+}
+
+.autocompletep-container ul li:hover{
+    background: #e3e3e3;
+}

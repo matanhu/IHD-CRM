@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { CustomerModel } from 'app/models/customer.model';
+import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class CustomerService {
@@ -15,13 +16,13 @@ export class CustomerService {
   }
 
   getAllCustomers() {
-    const customers = this.db.list('/Customers');
+    this.customers = this.db.list('/Customers');
     // return customers.map((res) => {
     //   console.log(res);
     //   this.customers = res;
     //   return res;
     // });
-    return customers;
+    return this.customers;
   }
 
   getCustomer(key: string) {
@@ -33,7 +34,16 @@ export class CustomerService {
     return customers.update(customer.key, customer);
   }
 
-  getLocalCustomers() {
+  findCustomer(name: string) {
+    return this.db.list('/Customers', {
+      query: {
+        orderByChild: 'customerName',
+        equalTo: name
+      }
+    });
+  }
+
+  getLocalCustomers(): Observable<any[]> {
     return this.customers;
   }
 }
